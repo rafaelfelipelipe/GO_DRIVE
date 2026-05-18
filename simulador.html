@@ -1,0 +1,331 @@
+<!DOCTYPE HTML>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GO DRIVE - SIMULADOR PREMIUM</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+    <style>
+        /* Fundo escuro moderno para destacar o painel estilo Dashboard */
+        .area-simulador-premium {
+            background: linear-gradient(135deg, #0f1c2e 0%, #022745 100%);
+            padding: 40px 20px;
+            border-radius: 12px;
+            max-width: 900px;
+            margin: 30px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+        }
+
+        .area-simulador-premium h1 {
+            color: #fff;
+            font-size: 1.8em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 0;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 2px solid rgba(255, 107, 53, 0.4);
+            padding-bottom: 15px;
+        }
+
+        /* Grid organizando os controles de um lado e o preço do outro */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .paineis-controles {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-grupo {
+            margin-bottom: 25px;
+        }
+
+        .form-grupo label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #FF6B35;
+            font-size: 0.95em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-grupo select {
+            width: 100%;
+            padding: 12px;
+            background: #162235;
+            border: 2px solid #022745;
+            border-radius: 6px;
+            color: #fff;
+            font-size: 1em;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .form-grupo select optgroup {
+            background: #0f1c2e;
+            color: #FF6B35;
+            font-weight: bold;
+        }
+
+        .form-grupo select option {
+            color: #fff;
+            font-weight: normal;
+        }
+
+        /* Customização do controle de Dias (Slider) */
+        .range-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .slider-dias {
+            flex: 1;
+            width: 100%;
+            height: 8px;
+            border-radius: 5px;
+            background: #162235;
+            outline: none;
+        }
+
+        .slider-dias::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #FF6B35;
+            cursor: pointer;
+            box-shadow: 0 0 8px #FF6B35;
+        }
+
+        .contador-dias {
+            background: #FF6B35;
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 4px;
+            font-weight: bold;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .checkbox-premium {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            color: #fff;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px dashed rgba(255,255,255,0.1);
+        }
+
+        .checkbox-premium input {
+            width: 18px;
+            height: 18px;
+            accent-color: #FF6B35;
+            cursor: pointer;
+        }
+
+        /* Painel de Total Estilo Neon/Digital */
+        .painel-total-digital {
+            background: radial-gradient(circle, #16283e 0%, #0a1322 100%);
+            border: 2px solid #FF6B35;
+            box-shadow: 0 0 20px rgba(255, 107, 53, 0.2);
+            border-radius: 10px;
+            padding: 35px 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 80%;
+        }
+
+        .painel-total-digital h3 {
+            margin: 0 0 15px 0;
+            color: #fff;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .preco-digital {
+            font-size: 2.8em;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            color: #FF6B35;
+            text-shadow: 0 0 15px rgba(255, 107, 53, 0.6);
+            margin: 0 0 25px 0;
+        }
+
+        .btn-reserva-direta {
+            background-color: transparent;
+            border: 2px solid #FF6B35;
+            color: #FF6B35;
+            padding: 12px 25px;
+            font-size: 1em;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(255, 107, 53, 0.1);
+        }
+
+        .btn-reserva-direta:hover {
+            background-color: #FF6B35;
+            color: #fff;
+            box-shadow: 0 0 20px #FF6B35;
+        }
+
+        /* Responsividade para telas menores */
+        @media (max-width: 768px) {
+            .dashboard-grid { grid-template-columns: 1fr; }
+            .painel-total-digital { height: auto; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <nav class="navbar">
+                <img class="logo" src="images/logo.png" alt="Logo GO DRIVE">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="veiculos.html">Veículos</a></li>
+                    <li><a href="cadastro.html">Cadastro</a></li>
+                    <li><a href="reserva.html">Reserva</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                    <li><a href="simulador.html">Simulador</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <center> 
+            <main class="area-simulador-premium">
+                <h1>Simulador de Aluguel Go Drive</h1>
+                
+                <div class="dashboard-grid">
+                    
+                    <div class="paineis-controles">
+                        <form id="form-simulador" oninput="calcularTotal()">
+                            
+                            <div class="form-grupo">
+                                <label for="carro-simulador">Escolha o Veículo</label>
+                                <select id="carro-simulador" required>
+                                    <optgroup label="Econômicos">
+                                        <option value="120" selected>Hyundai HB20 - R$ 120,00 / dia</option>
+                                        <option value="90">Renault Kwid - R$ 90,00 / dia</option>
+                                        <option value="115">Chevrolet Onix - R$ 115,00 / dia</option>
+                                        <option value="95">Fiat Mobi - R$ 95,00 / dia</option>
+                                        <option value="110">Fiat Argo - R$ 110,00 / dia</option>
+                                        <option value="130">VW Polo - R$ 130,00 / dia</option>
+                                        <option value="100">Fiat Palio - R$ 100,00 / dia</option>
+                                        <option value="90">Fiat Uno - R$ 90,00 / dia</option>
+                                        <option value="105">VW Gol - R$ 105,00 / dia</option>
+                                    </optgroup>
+                                    <optgroup label="SUVs">
+                                        <option value="220">VW T-Cross - R$ 220,00 / dia</option>
+                                        <option value="230">Hyundai Creta - R$ 230,00 / dia</option>
+                                        <option value="225">Chevrolet Tracker - R$ 225,00 / dia</option>
+                                        <option value="240">Honda HR-V - R$ 240,00 / dia</option>
+                                        <option value="210">Jeep Renegade - R$ 210,00 / dia</option>
+                                        <option value="260">Jeep Compass - R$ 260,00 / dia</option>
+                                        <option value="250">Toyota Corolla Cross - R$ 250,00 / dia</option>
+                                        <option value="350">Toyota SW4 - R$ 350,00 / dia</option>
+                                        <option value="380">Jeep Commander - R$ 380,00 / dia</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+
+                            <div class="form-grupo">
+                                <label for="dias-simulador">Quantidade de Dias</label>
+                                <div class="range-container">
+                                    <input type="range" id="dias-simulador" class="slider-dias" min="1" max="30" value="5" oninput="atualizarTextoDias(this.value)">
+                                    <span class="contador-dias" id="display-dias">5</span>
+                                </div>
+                            </div>
+
+                            <label class="checkbox-premium">
+                                <input type="checkbox" id="seguro-simulador" value="40">
+                                Adicionar Seguro Completo (+ R$ 40,00 / dia)
+                            </label>
+
+                        </form>
+                    </div>
+
+                    <div class="painel-total-digital">
+                        <h3>Total Estimado</h3>
+                        <p class="preco-digital" id="valor-exibido">R$ 600,00</p>
+                        <a href="reserva.html" class="btn-reserva-direta">Enviar Reserva</a>
+                    </div>
+
+                </div>
+            </main>
+            <br>
+        </center>
+
+        <footer>
+            <div class="footer-content">
+                <div class="rodape_box">
+                    <p><strong>Acesse nossas redes:</strong></p>
+                    <a href="https://Instagram.com/" target="_blank"><img class="icones" src="images/instagram.png" alt="Instagram"></a> 
+                    <a href="https://web.whatsapp.com/" target="_blank"><img class="icones" src="images/whatsapp.png" alt="WhatsApp"></a> 
+                    <a href="https://Facebook.com/" target="_blank"><img class="icones" src="images/facebook.png" alt="Facebook"></a>
+                    <p>©2026 - GO Drive - Todos os direitos reservados.</p>
+                </div>
+                <div class="rodape_box">
+                    <p><strong>Endereço:</strong></p>
+                    <p>Rua Guarani - Ubatuba - SP, 11680-000</p>
+                    <p>Telefone: (11) 99999-9999</p>
+                    <p>E-mail: contato@godrive.com.br</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Atualiza a caixinha laranja com o número de dias enquanto arrasta o slider
+        function atualizarTextoDias(valor) {
+            document.getElementById('display-dias').innerText = valor;
+        }
+
+        // Faz o cálculo matemático
+        function calcularTotal() {
+            const precoCarro = parseFloat(document.getElementById('carro-simulador').value);
+            const dias = parseInt(document.getElementById('dias-simulador').value);
+            
+            const comSeguro = document.getElementById('seguro-simulador').checked;
+            const precoSeguro = comSeguro ? parseFloat(document.getElementById('seguro-simulador').value) : 0;
+            
+            const total = (precoCarro + precoSeguro) * dias;
+            
+            // Exibe o valor no formato de moeda real
+            document.getElementById('valor-exibido').innerText = "R$ " + total.toFixed(2).replace('.', ',');
+        }
+
+        // Dispara o cálculo assim que a página abre para não começar zerado
+        window.onload = function() {
+            calcularTotal();
+        };
+    </script>
+</body>
+</html>

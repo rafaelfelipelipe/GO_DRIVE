@@ -1,0 +1,242 @@
+<!DOCTYPE HTML>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GO DRIVE - CONTATO PREMIUM</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+    <style>
+        /* Fundo escuro alinhado com o novo Simulador */
+        .area-contato-premium {
+            background: linear-gradient(135deg, #0f1c2e 0%, #022745 100%);
+            padding: 40px 20px;
+            border-radius: 12px;
+            max-width: 900px;
+            margin: 30px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+            text-align: left;
+        }
+
+        .area-contato-premium h1 {
+            color: #fff;
+            font-size: 1.8em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 0;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 2px solid rgba(255, 107, 53, 0.4);
+            padding-bottom: 15px;
+        }
+
+        /* Divisão em duas colunas para informações e formulário */
+        .contato-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 30px;
+        }
+
+        /* Blocos de informação com efeito Glassmorphism */
+        .painel-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .card-info {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 4px solid #FF6B35;
+            transition: transform 0.3s ease;
+        }
+
+        .card-info:hover {
+            transform: translateX(5px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .card-info h3 {
+            margin: 0 0 8px 0;
+            color: #FF6B35;
+            font-size: 1.05em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card-info p {
+            margin: 4px 0;
+            font-size: 0.95em;
+            color: #cbd5e1;
+        }
+
+        /* Formulário de contato premium */
+        .painel-formulario {
+            background: radial-gradient(circle, #16283e 0%, #0a1322 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .form-grupo {
+            margin-bottom: 18px;
+        }
+
+        .form-grupo label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #fff;
+            font-size: 0.9em;
+        }
+
+        .form-grupo input, .form-grupo textarea {
+            width: 100%;
+            padding: 12px;
+            background: #162235;
+            border: 2px solid #022745;
+            border-radius: 6px;
+            color: #fff;
+            font-size: 0.95em;
+            outline: none;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-grupo input:focus, .form-grupo textarea:focus {
+            border-color: #FF6B35;
+        }
+
+        .form-grupo textarea {
+            resize: vertical;
+            height: 110px;
+        }
+
+        .btn-enviar-mensagem {
+            width: 100%;
+            background-color: transparent;
+            border: 2px solid #FF6B35;
+            color: #FF6B35;
+            padding: 12px;
+            font-size: 1em;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(255, 107, 53, 0.1);
+        }
+
+        .btn-enviar-mensagem:hover {
+            background-color: #FF6B35;
+            color: #fff;
+            box-shadow: 0 0 20px #FF6B35;
+            transform: translateY(-1px);
+        }
+
+        /* Responsivo para tablets e celulares */
+        @media (max-width: 768px) {
+            .contato-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <nav class="navbar">
+                <img class="logo" src="images/logo.png" alt="Logo GO DRIVE">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="pagina2.html">Sobre</a></li>
+                    <li><a href="detalhe_veiculo.html">Veículos</a></li>
+                    <li><a href="cadastro.html">Cadastro</a></li>
+                    <li><a href="reserva.html">Reserva</a></li>
+                    <li><a href="contato.html">Contato</a></li> <li><a href="simulador.html">Simulador</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <center> 
+            <main class="area-contato-premium">
+                <h1>Fale Conosco - Atendimento</h1>
+                
+                <div class="contato-grid">
+                    
+                    <div class="painel-info">
+                        
+                        <div class="card-info">
+                            <h3>📞 Canais Telefônicos</h3>
+                            <p><strong>Suporte:</strong> (11) 99999-9999</p>
+                            <p><strong>Central:</strong> (11) 4004-0000</p>
+                        </div>
+
+                        <div class="card-info">
+                            <h3>✉️ Endereços de E-mail</h3>
+                            <p>contato@godrive.com.br</p>
+                            <p>financeiro@godrive.com.br</p>
+                        </div>
+
+                        <div class="card-info">
+                            <h3>📍 Base de Operações</h3>
+                            <p>Rua Guarani - Ubatuba - SP</p>
+                            <p>CEP: 11680-000</p>
+                        </div>
+
+                    </div>
+
+                    <div class="painel-formulario">
+                        <form action="#" method="POST">
+                            
+                            <div class="form-grupo">
+                                <label for="nome-contato">Seu Nome</label>
+                                <input type="text" id="nome-contato" placeholder="Digite seu nome completo" required>
+                            </div>
+
+                            <div class="form-grupo">
+                                <label for="email-contato">Seu E-mail</label>
+                                <input type="email" id="email-contato" placeholder="exemplo@email.com" required>
+                            </div>
+
+                            <div class="form-grupo">
+                                <label for="msg-contato">Sua Mensagem</label>
+                                <textarea id="msg-contato" placeholder="Como nossa equipe pode ajudar você hoje?" required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn-enviar-mensagem">Enviar Mensagem</button>
+
+                        </form>
+                    </div>
+
+                </div>
+            </main>
+            <br>
+        </center>
+
+        <footer>
+            <div class="footer-content">
+                <div class="rodape_box">
+                    <p><strong>Acesse nossas redes:</strong></p>
+                    <a href="https://Instagram.com/" target="_blank"><img class="icones" src="images/instagram.png" alt="Instagram"></a> 
+                    <a href="https://web.whatsapp.com/" target="_blank"><img class="icones" src="images/whatsapp.png" alt="WhatsApp"></a> 
+                    <a href="https://Facebook.com/" target="_blank"><img class="icones" src="images/facebook.png" alt="Facebook"></a>
+                    <p>©2026 - GO Drive - Todos os direitos reservados.</p>
+                </div>
+                <div class="rodape_box">
+                    <p><strong>Endereço:</strong></p>
+                    <p>Rua Guarani - Ubatuba - SP, 11680-000</p>
+                    <p>Telefone: (11) 99999-9999</p>
+                    <p>E-mail: contato@godrive.com.br</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
